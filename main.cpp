@@ -1,5 +1,3 @@
-// Created by Muhammad Abed
-//
 // Idea provided by www.reddit.com/r/dailyprogrammer
 //
 // This program recreates the hacking minigame from Fallout 3 and Fallout New Vegas.
