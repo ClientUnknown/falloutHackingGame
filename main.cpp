@@ -136,6 +136,8 @@ void startGame () {
 		do {
 			std::cout << "Guess the word (" << attempts << " left): ";
 			std::cin >> playerGuess;
+			if(playerGuess.length() != password.length())
+				std::cout << "Word Length mismatched. Word length should be " << password.length() << ". Please re-enter." << std::endl;
 		} while (playerGuess.length() != password.length());
 
 		// Ensure the player's guess is lower case
