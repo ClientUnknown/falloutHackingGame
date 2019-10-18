@@ -23,6 +23,7 @@ void setupGame ();
 void getWords (const int, const int);
 void displayWordBank ();
 void startGame();
+void playAgain();
 
 int main () {
 	setupGame();
@@ -135,6 +136,8 @@ void startGame () {
 		do {
 			std::cout << "Guess the word (" << attempts << " left): ";
 			std::cin >> playerGuess;
+			if(playerGuess.length() != password.length())
+				std::cout << "Word Length mismatched. Word length should be " << password.length() << ". Please re-enter." << std::endl;
 		} while (playerGuess.length() != password.length());
 
 		// Ensure the player's guess is lower case
@@ -152,8 +155,23 @@ void startGame () {
 		} else { // If player's guess is correct then tell them so and quit the function
 			std::cout << playerGuess.length() << "/" << playerGuess.length() << " letters correct\n";
 			std::cout << "You win! :D\n";
+			playAgain();
 			return;
 		}
 	}
 	std::cout << "You lost :( the correct password was: " << password << std::endl;
+	playAgain();
+}
+
+//Gives option to start a new game after the end of current game session
+void playAgain() {
+	char playAgainOption;
+	std::cout << "Want to play again? (Y/N)" << std::endl;
+	std::cin >> playAgainOption;
+	if(playAgainOption == 'y' || playAgainOption == 'Y')
+		main();
+	else {
+		std::cout << "Bye" << std::endl;
+		return;
+	}
 }
